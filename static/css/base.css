@@ -1,0 +1,17 @@
+@font-face {
+    font-family: '3x5';
+    src: url('../fonts/3X5.TTF');
+}
+html, body { background: rgba( 0, 0, 0, 0 ); margin: 0; padding: 0; overflow: hidden; }
+body, div { box-sizing: border-box; font-family: '3x5'; }
+.counter {
+    padding-right: 8px;
+    text-align: right;
+    font-size: 70px;
+    color: #ffffff;
+    transform: scale( 1 );
+    transition: 0.01s;
+}
+.up {
+    transform: scale(1.099);
+}

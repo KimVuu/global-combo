@@ -1,0 +1,33 @@
+{
+  "name": "global_combo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "iohook": {
+    "targets": [
+      "node-64",
+      "electron-70"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64",
+      "ia32"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^5.0.2"
+  },
+  "dependencies": {
+    "iohook": "^0.4.5"
+  }
+}

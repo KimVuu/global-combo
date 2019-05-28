@@ -5,31 +5,38 @@ const ioHook = require('iohook')
 const { ipcRenderer } = require('electron')
 
 let counter = document.querySelector(".counter")
-let n = 0
 let clear
 
+const content = document.querySelector("#content")
+
+const Render = ( DOM, element ) => { DOM.innerHTML = element }
+
 const _set = ( n ) => {
-    counter.innerHTML = n
-    counter.classList.add('up')
-    ipcRenderer.send('order', true)
-    setTimeout(() => {
-        counter.classList.remove('up')
-    }, 10);
-    if ( n ) {
-        _clear_timeout()
-    }
+  Render(content, `<div class="counter">${n}</div>`)
+  ipcRenderer.send('order', true)
 }
 
 const _clear_timeout = () => {
-    clearTimeout(clear)
-    clear = setTimeout(() => {
-        _set(0)
-        n = 0
-    }, 3000)
+  clearTimeout(clear)
+  clear = setTimeout(() => {
+    CounterClear()
+  }, 3000)
 }
 
+const CounterUp = () => {
+  ProxyState.counter += 1
+  _set(ProxyState.counter)
+  _clear_timeout()
+}
+const CounterClear = () => {
+  ProxyState.counter = 0
+  _set(ProxyState.counter)
+}
+
+let ProxyState = { counter: 0 }
+
 ioHook.on('keypress', event => {
-    _set(++n)
+  CounterUp()
 })
 
 ioHook.start()

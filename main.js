@@ -4,7 +4,7 @@ const electron = require('electron')
 const { app, BrowserWindow, ipcMain } = electron
 let mainWindow
 
-function createWindow () {
+const createWindow = () => {
   let displays = electron.screen.getAllDisplays()
   let oneDisplay = displays.find(( display ) => display.bounds.x === 0 && display.bounds.y === 0)
 

@@ -2,16 +2,31 @@
     font-family: '3x5';
     src: url('../fonts/3X5.TTF');
 }
+@keyframes CounterUpEffect {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    5% { transform: translate(-50%, -50%) scale(1.05); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
 html, body { background: rgba( 0, 0, 0, 0 ); margin: 0; padding: 0; overflow: hidden; }
 body, div { box-sizing: border-box; font-family: '3x5'; }
+
+.content {
+    position: relative;
+}
 .counter {
-    padding-right: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+
+    width: 100%;
+
+    padding-right: 20px;
     text-align: right;
     font-size: 70px;
     color: #ffffff;
-    transform: scale( 1 );
-    transition: 0.01s;
-}
-.up {
-    transform: scale(1.099);
+
+    animation-name: CounterUpEffect;
+    animation-duration: 0.5s;
 }
